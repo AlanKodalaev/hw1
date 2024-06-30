@@ -25,7 +25,7 @@ from sqlalchemy import and_
 
 """create db"""
 try:
-    connection = psycopg2.connect(user="postgres", password="alain888")
+    connection = psycopg2.connect(user="postgres", password="")
     connection.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
     cursor = connection.cursor()
     sql_create_database = cursor.execute('create database Bot')
@@ -34,7 +34,7 @@ try:
 except Exception:
     pass
 finally:
-    engine = create_engine("postgresql+psycopg2://postgres:alain888@localhost/bot", echo=True)
+    engine = create_engine("postgresql+psycopg2://postgres:@localhost/bot", echo=True)
     engine.connect()
     metadata = MetaData(engine)
     Base = declarative_base()
@@ -87,7 +87,7 @@ x_path_years = {
 
 """Bot"""
 storage = MemoryStorage()
-bot = Bot(token="5811633495:AAGtHfTpPMnxVq7JZG31YMw67COy-yLz6XI")
+bot = Bot(token="")
 dp = Dispatcher(bot, storage=storage)
 logging.basicConfig(level=logging.INFO)
 
